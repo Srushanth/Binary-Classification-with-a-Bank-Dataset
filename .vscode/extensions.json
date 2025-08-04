@@ -1,5 +1,9 @@
 {
     "recommendations": [
-        "ms-vscode.makefile-tools"
+        "ms-vscode.makefile-tools",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.vscode-jupyter-powertoys",
+        "mohsen1.prettify-json"
     ]
 }
