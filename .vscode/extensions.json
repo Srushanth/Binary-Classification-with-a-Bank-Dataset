@@ -4,6 +4,7 @@
         "ms-toolsai.jupyter-keymap",
         "ms-toolsai.jupyter",
         "ms-toolsai.vscode-jupyter-powertoys",
-        "mohsen1.prettify-json"
+        "mohsen1.prettify-json",
+        "github.vscode-github-actions"
     ]
 }
