@@ -1,5 +1,8 @@
 {
     "cSpell.words": [
-        "kaggle"
-    ]
+        "devcontainers",
+        "kaggle",
+        "venv"
+    ],
+    "DockerRun.DisableDockerrc": true
 }
