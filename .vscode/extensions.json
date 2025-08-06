@@ -6,6 +6,7 @@
         "ms-toolsai.vscode-jupyter-powertoys",
         "mohsen1.prettify-json",
         "github.vscode-github-actions",
-        "ms-python.python"
+        "ms-python.python",
+        "castrogusttavo.symbols"
     ]
 }
