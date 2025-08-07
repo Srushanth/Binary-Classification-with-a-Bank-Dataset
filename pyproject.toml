@@ -8,6 +8,7 @@ dependencies = [
     "kaggle>=1.7.4.5",
     "lightgbm>=4.6.0",
     "pandas>=2.3.1",
+    "sagemaker>=2.249.0",
     "scikit-learn>=1.7.1",
 ]
 
