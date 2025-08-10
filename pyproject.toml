@@ -3,7 +3,7 @@ name = "binary-classification-with-a-bank-dataset"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
-requires-python = ">=3.13"
+requires-python = ">=3.12"
 dependencies = [
     "fsspec>=2025.7.0",
     "kaggle>=1.7.4.5",
