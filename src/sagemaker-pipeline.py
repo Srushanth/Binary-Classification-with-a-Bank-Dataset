@@ -128,46 +128,44 @@ def create_pipeline():
 
     # Ingest data
     step_ingest_train_data = ingest_data(train_data_path)
+    step_ingest_test_data = ingest_data(test_data_path)
 
     # Preprocess data
-    step_preprocess = preprocess_data(step_ingest_train_data)
+    step_preprocess_train_data = preprocess_data(step_ingest_train_data)
+    step_preprocess_test_data = preprocess_data(step_ingest_test_data)
 
     # Split data
-    step_split = split_data(
-        step_preprocess[0],
-        step_preprocess[1]
-    )
+    step_split_train_data = split_data(step_preprocess_train_data[0], step_preprocess_train_data[1])
     
     # Train model
     step_train = train_model(
-        step_split[0],
-        step_split[1],
-        step_split[2],
-        step_split[3]
+        step_split_train_data[0],
+        step_split_train_data[1],
+        step_split_train_data[2],
+        step_split_train_data[3]
     )
 
     # Make predictions
-    test_df = pd.read_csv(test_data_path)
     step_predict = make_predictions(
         step_train,
-        test_df
+        step_preprocess_test_data
     )
 
-    # If you really need explicit dependencies, define them like this:
-    step_preprocess_instance = get_step(step_preprocess)
-    step_split_instance = get_step(step_split)
-    step_train_instance = get_step(step_train)
-    step_predict_instance = get_step(step_predict)
+    # # If you really need explicit dependencies, define them like this:
+    # step_preprocess_instance = get_step(step_preprocess)
+    # step_split_instance = get_step(step_split)
+    # step_train_instance = get_step(step_train)
+    # step_predict_instance = get_step(step_predict)
 
-    # Add dependencies if needed
-    step_split_instance.add_depends_on([step_preprocess_instance])
-    step_train_instance.add_depends_on([step_split_instance])
-    step_predict_instance.add_depends_on([step_train_instance])
+    # # Add dependencies if needed
+    # step_split_instance.add_depends_on([step_preprocess_instance])
+    # step_train_instance.add_depends_on([step_split_instance])
+    # step_predict_instance.add_depends_on([step_train_instance])
 
     # Create and return pipeline
     pipeline = Pipeline(
         name="BankMarketingPipeline",
-        steps=[step_ingest_train_data, step_preprocess, step_split, step_train, step_predict],
+        steps=[step_ingest_train_data, step_preprocess_train_data, step_preprocess_test_data, step_split_train_data, step_train, step_predict],
         sagemaker_session=sagemaker.Session()
     )
     
