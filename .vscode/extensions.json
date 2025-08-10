@@ -7,6 +7,12 @@
         "mohsen1.prettify-json",
         "github.vscode-github-actions",
         "ms-python.python",
-        "castrogusttavo.symbols"
+        "castrogusttavo.symbols",
+        "rodolphebarbanneau.python-docstring-highlighter",
+        "tamasfe.even-better-toml",
+        "njqdev.vscode-python-typehint",
+        "njpwerner.autodocstring",
+        "charliermarsh.ruff",
+        "ms-python.black-formatter"
     ]
 }
