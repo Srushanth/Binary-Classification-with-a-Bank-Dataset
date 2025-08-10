@@ -10,7 +10,7 @@ from sagemaker.workflow.pipeline import Pipeline
 from sagemaker.workflow.function_step import step
 from sagemaker.workflow.step_outputs import get_step
 
-@step(instance_type="ml.m5.xlarge", instance_count=1)
+@step(display_name="Ingest Data", instance_type="ml.m5.xlarge", instance_count=1)
 def ingest_data(s3_path: str) -> pd.DataFrame:
     """_summary_
 
@@ -23,7 +23,7 @@ def ingest_data(s3_path: str) -> pd.DataFrame:
     train_df = pd.read_csv(s3_path)
     return train_df
 
-@step(instance_type="ml.m5.xlarge", instance_count=1)
+@step(display_name="Get Feature Column", instance_type="ml.m5.xlarge", instance_count=1)
 def get_feature_column(train_df: pd.DataFrame) -> pd.Series:
     """_summary_
 
@@ -35,7 +35,7 @@ def get_feature_column(train_df: pd.DataFrame) -> pd.Series:
     """
     return train_df["y"]
 
-@step(instance_type="ml.m5.xlarge", instance_count=1)
+@step(display_name="Pre-process Data", instance_type="ml.m5.xlarge", instance_count=1)
 def preprocess_data(df: pd.DataFrame) -> tuple:
     """_summary_
 
@@ -69,7 +69,7 @@ def preprocess_data(df: pd.DataFrame) -> tuple:
 
     return X, y
 
-@step(instance_type="ml.m5.xlarge", instance_count=1)
+@step(display_name="Split Data", instance_type="ml.m5.xlarge", instance_count=1)
 def split_data(X: pd.DataFrame, y: pd.DataFrame) -> tuple:
     """_summary_
 
@@ -87,7 +87,7 @@ def split_data(X: pd.DataFrame, y: pd.DataFrame) -> tuple:
 
     return x_train, x_test, y_train, y_test
 
-@step(instance_type="ml.m5.xlarge", instance_count=1)
+@step(display_name="Train Model", instance_type="ml.m5.xlarge", instance_count=1)
 def train_model(
     x_train: pd.DataFrame, x_test: pd.DataFrame, y_train: pd.DataFrame, y_test: pd.DataFrame
 ) -> lgb.LGBMClassifier:
@@ -107,7 +107,7 @@ def train_model(
     
     return model
 
-@step(instance_type="ml.m5.xlarge", instance_count=1)
+@step(display_name="Mae Predictions", instance_type="ml.m5.xlarge", instance_count=1)
 def make_predictions(model: lgb.LGBMClassifier, test_data: pd.DataFrame) -> np.ndarray:
     """_summary_
 
