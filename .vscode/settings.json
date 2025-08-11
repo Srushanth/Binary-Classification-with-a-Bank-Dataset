@@ -1,7 +1,12 @@
 {
     "cSpell.words": [
+        "baride",
         "devcontainers",
         "kaggle",
+        "LGBM",
+        "ndarray",
+        "poutcome",
+        "proba",
         "venv"
     ],
     "DockerRun.DisableDockerrc": true
