@@ -13,6 +13,8 @@
         "njqdev.vscode-python-typehint",
         "njpwerner.autodocstring",
         "charliermarsh.ruff",
-        "ms-python.black-formatter"
+        "ms-python.black-formatter",
+        "bpruitt-goddard.mermaid-markdown-syntax-highlighting",
+        "bierner.markdown-mermaid"
     ]
 }
