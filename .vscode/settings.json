@@ -2,11 +2,16 @@
     "cSpell.words": [
         "baride",
         "devcontainers",
+        "fsspec",
+        "ipykernel",
+        "isort",
         "kaggle",
         "LGBM",
+        "lightgbm",
         "ndarray",
         "poutcome",
         "proba",
+        "scikit",
         "venv"
     ],
     "DockerRun.DisableDockerrc": true
