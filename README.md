@@ -23,7 +23,12 @@ stateDiagram-v2
         t_ml_m: Train Model
         mp1: Training Predictions
         mp2: Test Predictions
-        em: Evaluate Model
+    }
+
+    %% Submission States
+    state "Submission Pipeline" as sp {
+        fp: Format Predictions
+        ks: Submit to Kaggle
     }
 
     %% Flow
@@ -34,11 +39,12 @@ stateDiagram-v2
     gt --> sd
     sd --> t_ml_m
     t_ml_m --> mp1
-    mp1 --> em
     r_test_d --> ppd2
     t_ml_m --> mp2
     ppd2 --> mp2
-    mp2 --> em
+    mp2 --> fp
+    fp --> ks
+
 ```
 
 ```bibtex
